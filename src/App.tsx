@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/tauri";
 import "./App.css";
@@ -6,15 +6,19 @@ import "./App.css";
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
   const [name, setName] = useState("");
+  const [paths, setPaths] = useState<any[]>([]);
 
   async function greet() {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
     setGreetMsg(await invoke("greet", { name }));
+    setPaths(await invoke("paths", { path: name }));
   }
 
   return (
     <div className="container">
       <h1>Welcome to Tauri!</h1>
+
+      {JSON.stringify(paths)}
 
       <div className="row">
         <a href="https://vitejs.dev" target="_blank">
