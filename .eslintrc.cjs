@@ -13,7 +13,7 @@ module.exports = {
     ecmaVersion: 2021,
   },
   extends: ['prettier', 'plugin:import/recommended', 'plugin:@typescript-eslint/recommended'],
-  plugins: ['react', 'prettier', '@typescript-eslint/eslint-plugin'],
+  plugins: ['react', 'prettier', '@typescript-eslint', 'import'],
   rules: {
     'import/default': ['error'],
     'import/named': ['error'],
@@ -43,5 +43,12 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+  },
+  settings: {
+    'import/resolver': {
+      typescript: {
+        project: ['./tsconfig.json'],
+      },
+    },
   },
 }

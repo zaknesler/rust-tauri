@@ -1,23 +1,20 @@
 import { invoke } from '@tauri-apps/api/tauri'
-import { FormEvent, useState } from 'react'
+import { useState } from 'react'
+import { Form } from '@ui/form'
 
 export const App = () => {
-  const [name, setName] = useState('')
   const [paths, setPaths] = useState<string[]>([])
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  const handleSubmit = async (name: string) => {
     setPaths(await invoke('paths', { path: name }))
   }
 
   return (
     <div className="container">
       {JSON.stringify(paths)}
+
       <div className="row">
-        <form onSubmit={handleSubmit}>
-          <input onChange={e => setName(e.currentTarget.value)} placeholder="Enter a name..." />
-          <button type="submit">List dir</button>
-        </form>
+        <Form onSubmit={handleSubmit} />
       </div>
     </div>
   )

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -15,10 +16,15 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "types": [
+      "vite/client"
+    ],
     "paths": {
+      "@ui": ["./src/components/ui/index"],
+      "@ui/*": ["./src/components/ui/*"],
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "vite.config.ts", "tsconfig.node.json", "tsconfig.json", ".eslintrc.cjs", "tailwind.config.cjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
