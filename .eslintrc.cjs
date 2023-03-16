@@ -11,6 +11,8 @@ module.exports = {
   parserOptions: {
     ecmaFeatures: { jsx: true },
     ecmaVersion: 2021,
+    project: './tsconfig.json',
+    tsconfigRootDir: __dirname,
   },
   extends: ['prettier', 'plugin:import/recommended', 'plugin:@typescript-eslint/recommended'],
   plugins: ['react', 'prettier', '@typescript-eslint', 'import'],
@@ -47,7 +49,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       typescript: {
-        project: ['./tsconfig.json'],
+        project: ['./tsconfig*.json'],
       },
     },
   },

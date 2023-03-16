@@ -20,9 +20,9 @@
       "vite/client"
     ],
     "paths": {
-      "@ui": ["./src/components/ui/index"],
-      "@ui/*": ["./src/components/ui/*"],
-      "@/*": ["./src/*"]
+      // "@ui": ["src/components/ui/index"],
+      // "@ui/*": ["src/components/ui/*"],
+      // "@/*": ["src/*"]
     }
   },
   "include": ["src", "vite.config.ts", "tsconfig.node.json", "tsconfig.json", ".eslintrc.cjs", "tailwind.config.cjs"],

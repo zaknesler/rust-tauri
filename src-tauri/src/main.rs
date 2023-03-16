@@ -1,11 +1,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 #[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
-
-#[tauri::command]
 fn paths(path: &str) -> Vec<String> {
     let files = std::fs::read_dir(path)
         .unwrap()
@@ -22,7 +17,7 @@ fn paths(path: &str) -> Vec<String> {
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet, paths])
+        .invoke_handler(tauri::generate_handler![paths])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

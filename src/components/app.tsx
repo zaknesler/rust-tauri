@@ -1,6 +1,6 @@
 import { invoke } from '@tauri-apps/api/tauri'
 import { useState } from 'react'
-import { Form } from '@ui/form'
+import { Form } from './ui/form'
 
 export const App = () => {
   const [paths, setPaths] = useState<string[]>([])
@@ -10,7 +10,7 @@ export const App = () => {
   }
 
   return (
-    <div className="container">
+    <div className="p-6">
       {JSON.stringify(paths)}
 
       <div className="row">
