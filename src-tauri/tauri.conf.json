@@ -7,8 +7,8 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "tauri",
-    "version": "0.0.0"
+    "productName": "demo-app",
+    "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
@@ -40,7 +40,7 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "tauri",
+        "title": "demo tauri app",
         "width": 800,
         "height": 600
       }
