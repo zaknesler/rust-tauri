@@ -4,7 +4,7 @@ import { PropsWithChildren } from 'react'
 
 type FieldProps = PropsWithChildren &
   JSX.IntrinsicElements['label'] & {
-    label: string
+    label?: string
     optional?: boolean
     errors?: string[] | null
   }
@@ -27,14 +27,16 @@ export const Field: React.FC<FieldProps> = ({
   ...props
 }) => (
   <label {...props} className={clsx('block', className)}>
-    <div className={field({ error: !!errors })}>
-      <span>{label}</span>
-      {optional && (
-        <span className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-500">
-          Optional
-        </span>
-      )}
-    </div>
+    {(label || optional) && (
+      <div className={field({ error: !!errors })}>
+        <span>{label}</span>
+        {optional && (
+          <span className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-500">
+            Optional
+          </span>
+        )}
+      </div>
+    )}
     {children}
     {errors && <div className="mt-2 text-sm text-red-600 dark:text-red-500">{errors[0]}</div>}
   </label>
